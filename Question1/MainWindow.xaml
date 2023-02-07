@@ -1,0 +1,205 @@
+﻿<Window x:Class="Question1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Question1"
+        mc:Ignorable="d"
+        Title="Centennial College - COMP212 - Zack Bowker - Lab 3" Height="550" Width="800" Icon="/favicon-16x16.png">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Bill"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   Margin="0, 50, 0, 0"
+                   FontSize="36"
+                   />
+
+        <ListBox Grid.Column="1"
+                 Grid.Row="1"
+                 Grid.RowSpan="3"                 
+                 Name="Bill"
+                 Margin="0,0,10,0"
+                 >
+            <ListBoxItem HorizontalAlignment="Right"/>
+        </ListBox>
+
+
+
+
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"
+                   Text="Subtotal:"
+                   HorizontalAlignment="Left" 
+                   FontSize="16"
+                   Margin="20,0,0,0"/>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"                   
+                   HorizontalAlignment="Left"
+                   Margin="20,50,10,10" 
+                   FontSize="18"
+                   Name="Subtotal"/>
+        
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"
+                   Text="Tax:"
+                   HorizontalAlignment="Center" 
+                   FontSize="16"/>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"                   
+                   HorizontalAlignment="Center"
+                   Margin="10,50,10,10" 
+                   FontSize="18"
+                   Name="Tax"/>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"
+                   Text="Total:"
+                   HorizontalAlignment="Right" 
+                   FontSize="16"
+                   Margin="0,0,20,0"/>
+
+        <TextBlock Grid.Row="5"
+                   Grid.Column="2"                   
+                   HorizontalAlignment="Right"
+                   Margin="20,50,20,10" 
+                   FontSize="18"
+                   Name="Total"/>
+
+        <Label Content="Electronics"
+               Grid.Column="0"
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               Margin="0, 20, 0, 0"/>
+
+        <ComboBox Grid.Column="0"
+                  Grid.Row="0"
+                  Height="30"
+                  Width="150"
+                  Margin="0, 20, 0, 0"
+                  Name="cbElectronics" 
+                  SelectionChanged="cbElectronics_SelectionChanged"
+                  ItemsSource="{Binding Electronics}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="Books"
+               Grid.Column="0"
+               Grid.Row="1"
+               HorizontalAlignment="Center"
+               Margin="0, 20, 0, 0"/>
+
+        <ComboBox Grid.Column="0"
+                  Grid.Row="1"
+                  Height="30"
+                  Width="150"
+                  Margin="0, 20, 0, 0"
+                  Name="cbBooks"
+                  ItemsSource="{Binding Books}" 
+                  SelectionChanged="cbBooks_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Content="Toys"
+               Grid.Column="0"
+               Grid.Row="2"
+               HorizontalAlignment="Center"
+               Margin="0, 20, 0, 0"/>
+
+        <ComboBox Grid.Column="0"
+                  Grid.Row="2"
+                  Height="30"
+                  Width="150"
+                  Margin="0, 20, 0, 0"
+                  Name="cbToys"
+                  ItemsSource="{Binding Toys}" 
+                  SelectionChanged="cbToys_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+                  
+
+        <Label Content="Jewlery"
+               Grid.Column="0"
+               Grid.Row="3"
+               HorizontalAlignment="Center"
+               Margin="0, 20, 0, 0"/>
+
+        <ComboBox Grid.Column="0"
+                  Grid.Row="3"
+                  Height="30"
+                  Width="150"
+                  Margin="0, 20, 0, 0"
+                  Name="cbJewlery"
+                  ItemsSource="{Binding Jewlery}" 
+                  SelectionChanged="cbJewlery_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Grid.Column="0"
+                Grid.Row="4"
+                Width="150"
+                Height="30"
+                Content="Remove From Bill"
+                Name="btnRemove"
+                VerticalAlignment="Top"
+                Margin="0,15,0,0" 
+                Click="btnRemove_Click"/>
+
+        <Button Grid.Column="0"
+                Grid.Row="4"
+                Width="150"
+                Height="30"
+                Content="Clear Bill"
+                Name="btnClear"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,15"
+                Click="btnClear_Click"/>
+    </Grid>
+</Window>
+
+
+
+<!--<DataGrid
+            Grid.Column="1"
+            Grid.Row="1"
+            Grid.RowSpan="3"
+            Margin="0, 0, 10, 0"
+            Name="Bill"
+            ItemsSource="{Binding Bill}"
+            AutoGenerateColumns="False">
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="Name" Width="4*" x:Name="ItemCol" Binding="{Binding Name}"/>
+        <DataGridTextColumn Header="Price" Width="*" x:Name="CostCol" Binding="{Binding Price}"/>
+    </DataGrid.Columns>
+</DataGrid>-->
